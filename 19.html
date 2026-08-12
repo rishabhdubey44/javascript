@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keypress event</title>
+    <style>
+        body{
+            margin: 20px;
+        }
+        input{
+            width:300px;
+            padding: 5px 10px;
+        }
+        .container{
+            margin-top: 10px;
+            border:1px solid black;
+            height: 100px;
+            width:600px;
+            padding: 5px;
+            background-color: rgb(225, 221, 221);
+        }
+    </style>
+</head>
+<body>
+    <h1>Keyboard Event Demo</h1>
+    <p>Click the input box and press keys.</p>
+    <input class="input" placeholder="Type here...">
+    <div class="container">
+        Press a key...
+    </div>
+    <script>
+        const input=document.querySelector(".input")
+        const container=document.querySelector(".container")
+        input.addEventListener("keydown",(event)=>{
+            container.innerText=`keydown: ${event.key} \n code: ${event.code}`
+        })
+        input.addEventListener("keyup",(event)=>{
+            container.innerText=`keyup: ${event.key} \n code: ${event.code}`
+        })
+    </script>
+</body>
+</html>
