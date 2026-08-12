@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>ClassList</title>
+    <style>
+        body{
+            background-color:beige;
+        }
+        .card{
+            width:300px;
+            background-color:aliceblue;
+            padding:10px;
+            color:red; 
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM Manipulation</h1>
+    <h4>Using property classsList</h4>
+    <div class="demoContainer">
+        <p>item 1</p>
+        <!-- TODO : add class="item2" in below <p>tag> -->
+        <p>item 2</p>
+
+    </div>
+    <script>
+        let body=document.querySelector("body");
+        document.querySelector("h1").style.color="red";
+        document.querySelector("h4").style.color="green";
+
+        let card=document.createElement("div");
+        let item1=document.createElement("p");
+        let item2=document.createElement("p");
+
+        item1.textContent="Name: Virat Kohli";
+        item2.textContent="Profession: Cricketer";
+
+        card.append(item1,item2);
+        body.append(card);
+
+        let x=document.querySelector(".demoContainer");
+        x.lastElementChild.classList.add("item2");
+        
+        card.classList.add("card");
+
+
+    </script>
+</body>
+</html>
