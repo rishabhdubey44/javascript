@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>createElement</title>
+    <style>
+        .container{
+            background-color: red;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Insert Before Method Demo</h1>
+
+    <div class="container">
+        <p>Description 1</p>
+        <p id="item 2">Summary 2</p>
+        <p>Description 3</p>
+    </div>
+
+    <script>
+        let newParaElement= document.createElement("p");
+        newParaElement.innerText="new Item added successfully";
+        newParaElement.style.backgroundColor="yellow";
+        newParaElement.style.padding="10px";
+        newParaElement.style.borderRadius="10px";
+
+        let containerDiv= document.querySelector(".container");
+        containerDiv.style.backgroundColor="green";
+        containerDiv.appendChild(newParaElement);
+
+    </script>
+</body>
+</html>
