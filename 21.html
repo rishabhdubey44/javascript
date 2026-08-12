@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Events Basic</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            border: 1px solid black;
+
+
+            height: 400px;
+            width: 500px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box.hover {
+            background-color: darkcyan;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Mouse Events</h1>
+    <div class="box">
+        <p>move,click or double click me!</p>
+    </div>
+    <p id="statusText">Status : No event yet</p>
+    <p id="coordinate">Coordinates : -</p>
+    <script>
+        let box = document.querySelector(".box")
+        let statusText = document.querySelector("#statusText")
+        let coordinate = document.querySelector("#coordinate")
+
+
+        box.addEventListener("mousemove", (event) => {
+            box.classList.add("hover")
+            statusText.textContent = "Status: Mouse is over the box"
+            coordinate.textContent = `Coordinates : x:${event.clientX}, y:${event.clientY}`
+
+        })
+        box.addEventListener("mouseleave", (event) => {
+            box.classList.toggle("hover")
+            statusText.textContent = "Status: Mouse left the box"
+            coordinate.textContent = `Coordinates : x:${event.clientX}, y:${event.clientY}`
+        })
+
+        box.addEventListener("click", (event) => {
+            if (box.style.backgroundColor === "green") {
+                box.style.backgroundColor = "darkcyan";
+            }
+            else {
+                box.style.backgroundColor = "green";
+            }
+            statusText.textContent = "Status: Click Event fired!"
+            coordinate.textContent = `Coordinates : x:${event.clientX}, y:${event.clientY}`
+        })
+
+        box.addEventListener("dblclick", (event) => {
+            statusText.textContent = "Status: Mouse button double-clicked!";
+            coordinate.textContent =`Coordinates: x: ${event.clientX}, y: ${event.clientY}`;
+            box.style.backgroundColor=''
+            box.classList.remove("hover")
+            coordinate.textContent='Coordinates : -'
+        });
+    </script>
+</body>
+
+</html>
