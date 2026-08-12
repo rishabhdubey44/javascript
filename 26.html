@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Form Validation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: aqua;
+        }
+
+        .Form {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            width: 350px;
+        }
+
+        .field {
+            margin-bottom: 10px;
+        }
+
+        .field label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .field input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid gray;
+            border-radius: 10px;
+        }
+
+        .Form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .Error {
+            color: red;
+            margin: 5px 0 0;
+            display: none;
+        }
+
+        .field input.invalid {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="Form">
+        <h1>Form Validation</h1>
+        <div class="field">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" placeholder="Enter Name">
+            <p class="Error" id="username_error"></p>
+        </div>
+        <div class="field">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" placeholder="Enter email">
+            <p class="Error" id="email_error"></p>
+        </div>
+        <div class="field">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" placeholder="Enter password">
+            <p class="Error" id="password_error"></p>
+        </div>
+        <div class="field">
+            <label for="cnf_pass">Confirm Password:</label>
+            <input type="password" name="cnf_pass" id="cnf_pass" placeholder="Re-enter password">
+            <p class="Error" id="cnf_pass_error"></p>
+        </div>
+        <button>Register</button>
+
+        <script>
+            let form = document.querySelector(".Form")
+            
+            form.addEventListener("submit", (e) => {
+                e.preventDefault()
+                isValid=true
+                let username = document.querySelector("#username")
+                let error = document.querySelector(".Error")
+                let username_error = document.querySelector("#username_error")
+
+                if (username.value.trim().length < 4) {
+                    username_error.style.display = "block";
+                    username_error.innerHTML = "error: Username at least 4 characters"
+                    username.classList.add("invalid")
+                    isValid = false
+
+                }
+                else {
+                    username_error.innerHTML = ""
+                    username_error.style.display = "none";
+                    username.classList.remove("invalid")
+                }
+
+                let email = document.querySelector("#email")
+                let email_error = document.querySelector("#email_error")
+                if (!email.value.includes("@")) {
+                    email_error.innerHTML = "error: Incorrect Email"
+                    email_error.style.display = "block";
+                    email.classList.add("invalid")
+                    isValid = false
+                }
+                else {
+                    email_error.innerHTML = ""
+                    email.classList.remove("invalid")
+                    email_error.style.display = "none";
+                }
+
+                let password = document.querySelector("#password")
+                let password_error = document.querySelector("#password_error")
+                if (password.value.length < 8) {
+                    password_error.innerHTML = "Password must contain 8 characters"
+                    password.classList.add("invalid")
+                    password_error.style.display = "block";
+                    isValid = false
+                }
+                else {
+                    password_error.innerHTML = ""
+                    password.classList.remove("invalid")
+                    password_error.style.display = "none";
+                }
+
+                let cnf_pass = document.querySelector("#cnf_pass")
+                let cnf_pass_error = document.querySelector("#cnf_pass_error")
+                if (cnf_pass.value != password.value) {
+                    cnf_pass_error.innerHTML = "Password mismatch"
+                    cnf_pass.classList.add("invalid")
+                    cnf_pass_error.style.display = "block";
+                    isValid = false
+                }
+                else {
+                    cnf_pass_error.innerHTML = ""
+                    cnf_pass.classList.remove("invalid")
+                    cnf_pass_error.style.display = "none";
+                }
+
+                if(isValid){
+                    alert("Resgistration Successfull")
+                }
+            })
+        </script>
+    </form>
+</body>
+
+</html>
