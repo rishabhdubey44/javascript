@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard controlled counterx</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            padding: 5px 10px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Keyboard Controlled Counter Game</h1>
+        <p>Press A to increase,D to decrease,S to reset</p>
+        <h2>0</h2>
+        <button id="btn">Enable Controls</button>
+    </div>
+    <script>
+        let btn = document.querySelector("#btn")
+        let count = document.querySelector("h2")
+        let change = false;
+        function enable() {
+            if (btn.style.backgroundColor === "red") {
+                btn.innerText = "Disable Controls"
+                btn.style.backgroundColor = "green"
+                change = true;
+            }
+            else {
+                btn.innerText = "Enable Controls"
+                btn.style.backgroundColor = "red"
+                change = false;
+            }
+        }
+        btn.addEventListener("click", enable)
+
+        function update(event) {
+            if (event.key === "A" && change) {
+                count.innerText++;
+            }
+
+            else if (event.key === "D" && change) {
+                count.innerText--;
+            }
+
+            else if (event.key === "S" && change) {
+                count.innerText = '0';
+            }
+            
+        }
+        document.addEventListener("keydown", update)
+
+
+
+
+    </script>
+</body>
+
+</html>
