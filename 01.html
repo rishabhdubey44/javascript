@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>HTML layout</title>
+    </head>
+    <body>
+        <h1 id="title">DOM Manipulation</h1>
+
+        <p class="desc">description</p>
+
+        <script>
+            // let headingDiv= document.getElementById("title");
+            // console.log(headingDiv);
+
+            // let containerDiv= document.getElementsByClassName("container");
+            // console.log(containerDiv);
+
+            // let paradiv= document.getElementsByTagName("p");
+            // console.log(paradiv);
+
+            // let headingDiv= document.querySelector("#title");
+            // console.log(headingDiv);
+
+            // let containerDiv= document.querySelector(".container");
+            // console.log(containerDiv);
+
+            // let paradiv= document.querySelector("p");
+            // console.log(paradiv);
+
+            // let containerDiv=document.querySelector(".container")
+            // console.log(containerDiv.parentNode)
+            // console.log(containerDiv.parentElement)
+
+            // let paraDiv= document.querySelector("#para")
+            // console.log(paraDiv.parentElement)
+            // console.log(containerDiv.parentNode)
+
+            let h1Div= document.querySelector("#title")
+            h1Div.innerText="DOM Regulation"
+
+            let paraEl= document.querySelector(".desc")
+            paraEl.innerHTML="<h1> Summary </h1>"
+           // paraEl.innerText="<h1> Summary </h1>"
+        </script>
+    </body>
+</html>
