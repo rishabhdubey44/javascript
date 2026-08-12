@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+        }
+
+        .heading {
+            text-align: center;
+            width: 550px;
+            margin-bottom: 40px;
+        }
+
+        .heading h1 {
+            font-size: 45px;
+        }
+
+        .faq {
+            background-color: rgb(24, 24, 24);
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin-top: 5px;
+            cursor: pointer;
+            width: 550px;
+        }
+
+        .faq .question {
+            font-size: 20px;
+
+        }
+
+        .faq .answer {
+            font-size: 16px;
+            color: rgb(104, 99, 99);
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heading">
+        <h1>Frequently asked questions</h1>
+        <p>Pay once, build better websites faster. If you don't find what you need here, reach us at
+            support@aceternity.com</p>
+    </div>
+    <div class="container">
+        <div class="faq">
+            <p class="question">What does lifetime access include?</p>
+            <p class="answer">Lifetime access includes every current and future component, template, and update. Pay
+                once and get all new releases as they drop.</p>
+        </div>
+        <div class="faq">
+            <p class="question">How does the purchase and access flow work?</p>
+            <p class="answer">You’ll check out securely via Stripe, then we send a magic login link to your purchase
+                email. Click it to unlock all paid components and templates instantly.</p>
+        </div>
+        <div class="faq">
+            <p class="question">How do I get the code?</p>
+            <p class="answer">Copy component code from the Components tab and download full templates as a zip from the
+                Templates section. Everything is ready to drop into your project.</p>
+        </div>
+        <div class="faq">
+            <p class="question">Do you offer refunds?</p>
+            <p class="answer">We don’t offer refunds because you get immediate, full access to all code and downloads.
+                Please review our refund policy for details.</p>
+        </div>
+        <div class="faq">
+            <p class="question">Need help or have a question?</p>
+            <p class="answer">Lifetime access includes every current and future component, template, and update. Pay
+                once and get all new releases as they drop.</p>
+        </div>
+    </div>
+
+    <script>
+        let faqs = document.querySelectorAll(".faq");
+
+        faqs.forEach(function (faq) {
+            faq.addEventListener("click", function () {
+                let answer = this.querySelector(".answer");
+                if (answer.style.display === "block") {
+                    answer.style.display = "none";
+                } else {
+                    answer.style.display = "block";
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>
