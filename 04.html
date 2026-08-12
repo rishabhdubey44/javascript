@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+</head>
+
+<body>
+    <h1>Finish Homework</h1>
+    <div class="container">
+        <ul></ul>
+    </div>
+    <button id="btn">Add</button>
+    <script>
+        function addNewElement() {
+            let newElement = document.createElement("li");
+            newElement.innerText = "New Task (appendChild)";
+
+            let containerDiv = document.querySelector(".container ul");
+            containerDiv.appendChild(newElement);
+        }
+
+        let btn = document.querySelector("#btn");
+        btn.addEventListener("click", addNewElement);
+    </script>
+</body>
+
+</html>
