@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>theme changer</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+            background-color: darkblue;
+            color: white;
+        }
+        button{
+            height: 40px;
+            background-color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Theme Changer</h1>
+        <p>Click the button to switch the theme.</p>
+        <button class="btn">Toggle Theme</button>
+        <script>
+            let btn=document.querySelector(".btn");
+            let body=document.querySelector("body");
+            function themechange(){
+                if(body.style.backgroundColor==="darkblue"){
+                    body.style.backgroundColor="green";
+                }
+                else{
+                    body.style.backgroundColor="darkblue";
+                }
+            }
+            btn.addEventListener("click",themechange);
+        </script>
+    </div>
+</body>
+</html>
