@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+
+    <style>
+        .todo-card {
+            display: flex;
+            flex-direction: column  ;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .card{
+            width:300px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-color: aliceblue;
+            padding:10px;
+        }
+    </style>
+
+</head>
+<body>
+    <button id="btn">
+        Create Student Card
+    </button>
+
+    <div class="todo-card">
+        <!-- add new task -->
+    </div>
+
+    <script>
+
+        let btn=document.querySelector("#btn");
+        
+        function createStudentCard(){
+            let card=document.createElement("div");
+            card.classList.add("card");
+            let name=document.createElement("p");
+            name.innerText="Student Name: Virat Kohli";
+            card.appendChild(name);
+            let course=document.createElement("p");
+            course.innerText="Course: Full Stack Development";
+            card.appendChild(course);
+            let college=document.createElement("p");
+            college.innerText="College:Parul University";
+            card.appendChild(college);
+            let containerDiv=document.querySelector(".todo-card");
+            containerDiv.appendChild(card);
+        }
+        btn.addEventListener("click",createStudentCard);
+    </script>
+</body>
+</html>
