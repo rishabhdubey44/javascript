@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listeners</title>
+</head>
+<body>
+    <h1>Event Listeners</h1>
+    <button id="btn">Click Me</button>
+    <button id="btn2">Add New Task</button>
+    <script>
+        let btn=document.querySelector("#btn");
+        let btn2=document.querySelector("#btn2");
+        function alert1(){
+            alert("Button Clicked");
+        }
+        function addNewTask(){
+            let newTask=document.createElement("p");
+            newTask.innerText="New Task Added";
+            let containerDiv=document.querySelector("body");
+            containerDiv.append(newTask);
+        }
+        btn.addEventListener("click",alert1);
+        btn2.addEventListener("click",addNewTask);
+    </script>
+</body>
+</html>
