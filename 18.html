@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+</head>
+
+<body>
+    <h1>To-Do List Builder</h1>
+    <input placeholder="Enter task" class="input">
+    <button class="btn1">Add</button>
+    <button class="btn2">Duplicate Last</button>
+    <button class="btn3">Insert at Top</button>
+    <ul class="output"></ul>
+    <script>
+        let input = document.querySelector(".input");
+        let output = document.querySelector(".output");
+
+
+        function addElement() {
+            let newelement = document.createElement("li");
+            newelement.innerText = input.value + " ";
+            let deleteButton = document.createElement("button");
+            deleteButton.innerText = "X";
+            newelement.appendChild(deleteButton);
+            deleteButton.addEventListener("click", function () {
+                newelement.remove();
+            });
+            output.appendChild(newelement);
+            input.value = "";
+        }
+        let add = document.querySelector(".btn1");
+        add.addEventListener("click", addElement);
+
+
+        function duplicateLast() {
+            let lastTask = output.lastElementChild;
+            if (lastTask !== null) {
+                let copy = lastTask.cloneNode(true);
+                let deleteButton = copy.querySelector("button");
+                deleteButton.addEventListener("click", function () {
+                    copy.remove();
+                });
+                output.appendChild(copy);
+            }
+        }
+        let duplicateButton = document.querySelector(".btn2");
+        duplicateButton.addEventListener("click", duplicateLast);
+
+
+        function insertAtTop() {
+            let text = input.value.trim();
+            if (text !== "") {
+                let newElement = document.createElement("li");
+                newElement.innerText = text + " ";
+                let deleteButton = document.createElement("button");
+                deleteButton.innerText = "X";
+                newElement.appendChild(deleteButton);
+                deleteButton.addEventListener("click", function () {
+                    newElement.remove();
+                });
+                output.insertBefore(newElement, output.firstChild);
+                input.value = "";
+            }
+        }
+        let topButton = document.querySelector(".btn3");
+        topButton.addEventListener("click", insertAtTop);
+    </script>
+</body>
+
+</html>
