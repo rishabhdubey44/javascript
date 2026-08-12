@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Text Manipulator</title>
+    <style>
+        body{
+            height:90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: aliceblue;
+        }
+        .container{
+            border:1px solid black;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: white;
+        }
+        button{
+            height: 30px;
+            width:200px;
+            margin-top: 5px;
+        }
+        input{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Interactive Text Manipulator</h1>
+        <input placeholder="Type Something..." class="input">
+        <p>Your text will appear here</p>
+        <div>
+            <button class="btn1">Show Text</button>
+            <button class="btn2">Clear</button>
+        </div>
+        <div>
+            <button class="btn3">UpperCase</button>
+            <button class="btn4">Toggle Highlight</button>
+        </div>
+
+        <script>
+            let para=document.querySelector("p")
+            let show=document.querySelector(".btn1")
+            let clear=document.querySelector(".btn2")
+            let upper=document.querySelector(".btn3")
+            let toggle=document.querySelector(".btn4")
+            let input=document.querySelector(".input")
+            function showtext(){
+                para.innerText=input.value;
+            }
+            show.addEventListener("click",showtext)
+            function cleartext(){
+                para.innerText="";
+            }
+            clear.addEventListener("click",cleartext)
+            function uppertext(){
+                para.innerText=para.innerText.toUpperCase();
+            }
+            upper.addEventListener("click",uppertext)
+            function togglehighlight(){
+                if(para.style.backgroundColor==="yellow"){
+                    para.style.backgroundColor="";
+                }
+                else{
+                    para.style.backgroundColor="yellow";
+                }
+            }
+            toggle.addEventListener("click",togglehighlight);
+
+
+        </script>
+        
+    </div>
+</body>
+</html>
