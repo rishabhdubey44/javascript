@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable about page</title>
+    <style>
+        body {
+            display: flex;
+            height: 80vh;
+            align-items: center;
+            justify-content: center;
+            background-color: aliceblue;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 20px;
+
+        }
+
+        button {
+            height: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>About Me</h1>
+        <!-- <p>I am learning DOM mainpulation and building interactive web pages</p> -->
+        <!-- <button class="btn1">Edit</button> -->
+        <!-- <button class="btn2">Save</button>
+
+        <script>
+            
+            let para=document.querySelector("p")
+            let edit= document.querySelector(".btn1")
+            let save=document.querySelector(".btn2")
+            function contenteditable(){
+                console.log(para.contentEditable);
+                para.contentEditable=true;
+            }
+            function contentsave(){
+                para.contentEditable=false;
+
+            }
+            edit.addEventListener("click",contenteditable)
+            save.addEventListener("click",contentsave)
+            
+            
+
+        </script> -->
+        <p>This is a paragraph. Click Edit to modify me.</p>
+
+        <button class="btn1">Edit</button>
+
+        <script>
+            let para = document.querySelector("p");
+            let edit = document.querySelector(".btn1");
+
+            para.contentEditable = "false";
+
+            function toggleEdit() {
+                if (para.contentEditable === "false") {
+                    para.contentEditable = "true";
+                    edit.textContent = "Save";
+                } else {
+                    para.contentEditable = "false";
+                    edit.textContent = "Edit";
+                }
+            }
+
+            edit.addEventListener("click", toggleEdit);
+        </script>
+    </div>
+</body>
+
+</html>
