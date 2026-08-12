@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aliceblue;
+            height: 80vh;
+
+        }
+
+        .container {
+            width: 600px;
+            background-color: white;
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .btn {
+            color: white;
+            background-color: blue;
+            padding: 6px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Quote Generator</h1>
+        <p id="quote_text">Generate Quote</p>
+        <p id="quote_author"></p>
+        <button class="btn">New Quote</button>
+
+        <script>
+            const quotes = [
+                { text: "A rose by any other name would smell as sweet", author: "William Shakespere" },
+                { text: "I have always depended on the kindness of strangers.", author: "Blanche Dubois" },
+                { text: "A rose by any other name would smell as sweet", author: "William Shakespere" },
+                { text: "I have always depended on the kindness of strangers.", author: "Blanche Dubois" },
+                { text: "Never judje a book by its cover.", author:"Dont Know"}
+            ]
+
+            let text=document.querySelector("#quote_text");
+            let author=document.querySelector("#quote_author")
+            function generate_new_quote() {
+                let random_index= Math.floor(Math.random()*quotes.length)
+                text.innerText=quotes[random_index].text
+                author.innerText=`  -${quotes[random_index].author}`
+            }
+            let btn = document.querySelector(".btn");
+            btn.addEventListener("click", generate_new_quote)
+        </script>
+    </div>
+</body>
+
+</html>
