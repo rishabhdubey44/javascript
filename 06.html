@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #ffe4c4;
+            font-family:fantasy;
+        }
+        .para{
+            color:green;
+        }
+        .card{
+            width: 500px;
+            padding: 5px;
+            text-align: center;
+        }
+        .newPara{
+            color:blue;
+            
+            font-size:20px;
+        }
+        #newParaid{
+            color:darkblue;   
+            font-size:30px;
+        }
+        
+       
+    </style>
+</head>
+<body>
+    <h1>DOM Manipulation</h1>
+    <p class="para">Use of style attribute</p>
+
+    <div class="card">
+        <!-- Name:mohit
+        Location:Vadodara -->
+    </div>
+    <script>
+        let h1= document.querySelector("h1");
+        
+        h1.style.color="orangered";
+        h1.style.fontWeight="300";
+        h1.style.fontSize="50px";
+
+        let card = document.querySelector(".card");
+        card.style.background="linear-gradient(orange,white,green)";
+
+        let newParaElement = document.createElement("p");
+        newParaElement.innerText = "Name:Mohit \n Location:Vadodara";
+        newParaElement.className="newPara";
+        newParaElement.id="newParaid";
+        console.log(newParaElement.className);
+        console.log(newParaElement.id);
+
+        let containerDiv = document.querySelector(".card");
+        containerDiv.appendChild(newParaElement);
+
+    </script>
+</body>
+</html>
