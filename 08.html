@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .container2{
+            background-color: yellow;
+            border: 2px solid black;
+        } */
+    </style>
+</head>
+<body>
+    <h1>DOM Manipulation</h1>
+    <h4>Using GetAttribute/SetAttribute</h4>
+<!-- 
+    <div style="color: red" class="container1" data-name="Hi">
+        <p>description</p>
+        <p>summary</p>
+    </div> -->
+    <div id="container2" style="color: green" class="container2" data-priority="top-priority">
+        <p>Random description</p>
+        <p id="item2">Random Summary</p>
+    </div>
+
+    <div id="hi" class="box">
+        <li >1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </div>
+
+    <script>
+        let containerDiv=document.querySelector(".container2")
+        console.log(containerDiv.getAttribute("data-priority"));
+        console.log(containerDiv.getAttribute("id"));
+        console.log(containerDiv.getAttribute("style"));
+        console.log(containerDiv.getAttribute("class"));
+
+        let  x=document.querySelector(".box");
+        console.log(x.getAttribute("class"));
+        console.log(x.getAttribute("id"));
+        x.setAttribute("id","main-panel");
+        console.log(x.getAttribute("id"));
+
+        x.setAttribute("data-priority","urgent");
+        console.log(x.getAttribute("data-priority"));
+
+
+    </script>
+</body>
+</html>
